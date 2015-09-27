@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:actionMenuTextColor">@color/white</item>
+
+        <item name="colorPrimary">
+            @color/primary_blue
+        </item>
+
+        <item name="colorPrimaryDark">
+            @color/secondary_blue
+        </item>
+
+        <item name="colorAccent">
+            @color/acc_orange
+        </item>
+
+    </style>
+
+</resources>

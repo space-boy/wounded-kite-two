@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+
+    <include android:id="@+id/app_b" layout="@layout/app_bar">
+
+    </include>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/gif_path_txt"
+        android:layout_below="@id/app_b"
+        android:textSize="30sp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gif_path_txt"
+        android:id="@+id/loader"
+        >
+
+        <ProgressBar
+            android:id="@+id/loadingPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
+            android:id="@+id/img_main"
+            android:gravity="center"
+            android:contentDescription="@string/mainimg"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_frames"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/loader"
+        android:text="@string/frames"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/text_delay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/text_frames"
+        android:text="@string/delay"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/text_dimensions"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_delay"
+        android:gravity="center"
+        android:text="@string/dimensions"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/text_decoded_size"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_dimensions"
+        android:gravity="center"
+        android:text="@string/size"
+        android:textSize="18sp"
+        />
+
+    <CheckBox
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/active_check"
+        android:layout_below="@id/text_decoded_size"
+        android:text="@string/active"
+        />
+
+    <CheckBox
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/active_check2"
+        android:layout_below="@id/active_check"
+        android:text="@string/active2"
+        />
+
+    <CheckBox
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/active_check3"
+        android:layout_below="@id/active_check2"
+        android:text="@string/active3"
+        />
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/active_check3"
+        android:gravity="center"
+        android:id="@+id/add_btn"
+        android:textColor="@color/black"
+        android:text="@string/add"
+        />
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_btn"
+        android:gravity="center"
+        android:id="@+id/del_btn"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:text="@string/delete"
+        />
+
+</RelativeLayout>

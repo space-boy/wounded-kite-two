@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/manual"
+        android:text="@string/mansearch"/>
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/automatic"
+        android:text="@string/autosearch"/>
+
+</LinearLayout>

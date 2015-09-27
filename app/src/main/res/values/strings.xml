@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Screen Gif</string>
+    <string name="gif_loc">Gif Location</string>
+    <string name="browse_gif">Browse Files</string>
+    <string name="search_files">Search Files</string>
+    <string name="active">Active Gif 1</string>
+    <string name="active2">Active Gif 2</string>
+    <string name="active3">Active Gif 3</string>
+    <string name="frames">Frames: </string>
+    <string name="delay">Delay: </string>
+    <string name="dimensions">Dimensions: </string>
+    <string name="size">Original Image Size: </string>
+    <string name="file_icon">file icon</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="mainimg">Main Image</string>
+    <string name="mansearch">Manual Search</string>
+    <string name="autosearch">Auto Search</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
