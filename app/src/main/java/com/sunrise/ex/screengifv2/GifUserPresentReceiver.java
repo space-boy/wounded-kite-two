@@ -16,6 +16,7 @@ import android.content.IntentFilter;
 public class GifUserPresentReceiver extends BroadcastReceiver {
 
     BroadcastReceiver screenoffReceiver;
+    BroadcastReceiver sleepFilter;
     IntentFilter filter;
     boolean mIsRegistered;
 
@@ -56,6 +57,18 @@ public class GifUserPresentReceiver extends BroadcastReceiver {
                             Intent in3 = new Intent(context, GifService3.class);
                             context.stopService(in3);
 
+                            IntentFilter onFilter = new IntentFilter();
+                            onFilter.addAction(Intent.ACTION_SCREEN_ON);
+
+                            sleepFilter = new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    startGifService1(context);
+                                    startGifService2(context);
+                                    startGifService3(context);
+                                }
+                            };
+                            context.getApplicationContext().registerReceiver(sleepFilter, onFilter);
                             cleanUpReceivers(context);
                         }
                     }

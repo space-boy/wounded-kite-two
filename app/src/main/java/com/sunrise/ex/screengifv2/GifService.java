@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -51,8 +52,8 @@ public class GifService extends Service {
                     getBitmap();
                     mHandle.postDelayed(this,preferences.getInt("com.sunrise.ex.screengifv2.DELAY_KEY",100));
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error Decoding Gif: File Not Found",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error Decoding Gif: File Not Found at" + sharedPath,
+                            Toast.LENGTH_LONG).show();
                     return;
                 }
             }
