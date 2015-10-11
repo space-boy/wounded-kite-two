@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ConfigActivity extends ActionBarActivity {
 
@@ -55,11 +57,13 @@ public class ConfigActivity extends ActionBarActivity {
             mNoWidget.setVisibility(View.VISIBLE);
         } else {
 
-            for(GifMeta mMeta : mGifMetaArrayList){
-                if(!new File(mMeta.getGifPath()).exists()){
-                    cleanUpList(mMeta);
-                }
-            }
+           for(Iterator<GifMeta> it = mGifMetaArrayList.iterator(); it.hasNext(); ){
+               GifMeta metagif = it.next();
+               if(!new File(metagif.getGifPath()).exists()){
+                   cleanUpList(metagif);
+                   it.remove();
+               }
+           }
         }
 
         FragmentManager fm = getFragmentManager();
@@ -97,9 +101,11 @@ public class ConfigActivity extends ActionBarActivity {
             mNoWidget = (ImageView) findViewById(R.id.no_widget_img);
             mNoWidget.setVisibility(View.GONE);
 
-            for(GifMeta mMeta : mGifMetaArrayList){
-                if(!new File(mMeta.getGifPath()).exists()){
-                    cleanUpList(mMeta);
+            for(Iterator<GifMeta> it = mGifMetaArrayList.iterator(); it.hasNext(); ){
+                GifMeta metagif = it.next();
+                if(!new File(metagif.getGifPath()).exists()){
+                    cleanUpList(metagif);
+                    it.remove();
                 }
             }
 
@@ -142,6 +148,6 @@ public class ConfigActivity extends ActionBarActivity {
             editor.remove(NewConfig.DELAY_KEY3);
             editor.commit();
         }
-        mGifMetaArrayList.remove(gifmeta);
+
     }
 }

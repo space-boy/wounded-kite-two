@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GifListFragment extends ListFragment {
 
@@ -52,38 +53,38 @@ public class GifListFragment extends ListFragment {
 
         mGifMetaArrayList = GifDataStore.get(getActivity()).getGifMetaArrayList();
 
-        for(GifMeta g : mGifMetaArrayList){
-            File f = new File(g.getGifPath());
-            if(!f.exists()){
+        for(Iterator<GifMeta> it = mGifMetaArrayList.iterator(); it.hasNext(); ){
+            GifMeta metagif = it.next();
+            if(!new File(metagif.getGifPath()).exists()){
 
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(
                         getActivity().getApplicationContext());
 
                 SharedPreferences.Editor editor = pref.edit();
 
-                if(g.isActive()) {
+                if(metagif.isActive()) {
                     editor.remove(PATH_KEY);
                     editor.remove(WIDTH_KEY);
                     editor.remove(HIGH_KEY);
                     editor.remove(DELAY_KEY);
                     editor.commit();
                 }
-                if(g.isActive2()) {
+                if(metagif.isActive2()) {
                     editor.remove(PATH_KEY2);
                     editor.remove(WIDTH_KEY2);
                     editor.remove(HIGH_KEY2);
                     editor.remove(DELAY_KEY2);
                     editor.commit();
                 }
-                if(g.isActive3()) {
+                if(metagif.isActive3()) {
                     editor.remove(PATH_KEY3);
                     editor.remove(WIDTH_KEY3);
                     editor.remove(HIGH_KEY3);
                     editor.remove(DELAY_KEY3);
                     editor.commit();
                 }
+                it.remove();
 
-                mGifMetaArrayList.remove(g);
             }
         }
 

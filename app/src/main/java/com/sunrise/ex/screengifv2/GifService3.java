@@ -51,8 +51,8 @@ public class GifService3 extends Service {
                     getBitmap();
                     mHandle.postDelayed(this,preferences.getInt("com.sunrise.ex.screengifv2.DELAY_KEY3",100));
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error Decoding Gif: File Not Found",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error Decoding Gif: File Not Found at" + sharedPath,
+                            Toast.LENGTH_LONG).show();
                     return;
                 }
 
