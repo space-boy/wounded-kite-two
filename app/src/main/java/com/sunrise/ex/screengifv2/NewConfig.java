@@ -55,20 +55,20 @@ public class NewConfig extends ActionBarActivity {
     private static final String DELAY_SESSION_KEY = "com.sunrise.ex.screengifv2.delay key";
     private int mPreRotateDelay = 0;
 
-    public  String PATH_KEY  = "com.sunrise.ex.screengifv2.PATH_KEY";
-    public  String WIDTH_KEY  = "com.sunrise.ex.screengifv2.WIDTH_KEY";
-    public  String HIGH_KEY  = "com.sunrise.ex.screengifv2.HIGH_KEY";
-    public  String DELAY_KEY  = "com.sunrise.ex.screengifv2.DELAY_KEY";
+    public static final String PATH_KEY  = "com.sunrise.ex.screengifv2.PATH_KEY";
+    public static final String WIDTH_KEY  = "com.sunrise.ex.screengifv2.WIDTH_KEY";
+    public static final String HIGH_KEY  = "com.sunrise.ex.screengifv2.HIGH_KEY";
+    public static final String DELAY_KEY  = "com.sunrise.ex.screengifv2.DELAY_KEY";
 
-    public  String PATH_KEY2  = "com.sunrise.ex.screengifv2.PATH_KEY2";
-    public  String WIDTH_KEY2  = "com.sunrise.ex.screengifv2.WIDTH_KEY2";
-    public  String HIGH_KEY2  = "com.sunrise.ex.screengifv2.HIGH_KEY2";
-    public  String DELAY_KEY2  = "com.sunrise.ex.screengifv2.DELAY_KEY2";
+    public static final String PATH_KEY2  = "com.sunrise.ex.screengifv2.PATH_KEY2";
+    public static final String WIDTH_KEY2  = "com.sunrise.ex.screengifv2.WIDTH_KEY2";
+    public static final String HIGH_KEY2  = "com.sunrise.ex.screengifv2.HIGH_KEY2";
+    public static final String DELAY_KEY2  = "com.sunrise.ex.screengifv2.DELAY_KEY2";
 
-    public  String PATH_KEY3  = "com.sunrise.ex.screengifv2.PATH_KEY3";
-    public  String WIDTH_KEY3  = "com.sunrise.ex.screengifv2.WIDTH_KEY3";
-    public  String HIGH_KEY3  = "com.sunrise.ex.screengifv2.HIGH_KEY3";
-    public  String DELAY_KEY3 = "com.sunrise.ex.screengifv2.DELAY_KEY3";
+    public static final String PATH_KEY3  = "com.sunrise.ex.screengifv2.PATH_KEY3";
+    public static final String WIDTH_KEY3  = "com.sunrise.ex.screengifv2.WIDTH_KEY3";
+    public static final String HIGH_KEY3  = "com.sunrise.ex.screengifv2.HIGH_KEY3";
+    public static final String DELAY_KEY3 = "com.sunrise.ex.screengifv2.DELAY_KEY3";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

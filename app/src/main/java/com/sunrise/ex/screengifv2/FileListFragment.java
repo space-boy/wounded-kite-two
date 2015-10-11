@@ -99,6 +99,7 @@ public class FileListFragment extends ListFragment {
         TextView StringView = (TextView) v.findViewById(R.id.file_path_txt);
 
         File iFile = new File(StringView.getText().toString());
+
         if (iFile.isFile()) {
             if(iFile.toString().endsWith(".gif")) {
                 Intent i = new Intent();
@@ -107,32 +108,35 @@ public class FileListFragment extends ListFragment {
                 getActivity().finish();
             }else if(!iFile.toString().endsWith(".gif")){
                  Toast.makeText(getActivity().getApplicationContext(),"Not a .Gif file",Toast.LENGTH_SHORT).show();
-                return;
             }
         }
 
         if(iFile.isDirectory()){
-            if(iFile.listFiles().length == 0){
+          if(iFile.listFiles() != null) {
+              if (iFile.listFiles().length == 0) {
 
-                Toast.makeText(getActivity().getApplicationContext(),"Empty Folder",Toast.LENGTH_SHORT).show();
+                  Toast.makeText(getActivity().getApplicationContext(), "Empty Folder", Toast.LENGTH_SHORT).show();
 
-                return;
-            }
+                  return;
+              }
+          }
         }
 
-        files = new File(StringView.getText().toString());
-        getActivity().setTitle(StringView.getText());
-        myPrevBack.updateCur(StringView.getText().toString());
-        mPrevDir = getActivity().getTitle().toString();
-        myPrevBack.updatePrev(mPrevDir);
+        if(iFile.isDirectory()) {
+            files = new File(StringView.getText().toString());
+            getActivity().setTitle(StringView.getText());
+            myPrevBack.updateCur(StringView.getText().toString());
+            mPrevDir = getActivity().getTitle().toString();
+            myPrevBack.updatePrev(mPrevDir);
 
-        myPrevBack.updateCur(files.toString());
+            myPrevBack.updateCur(files.toString());
 
-        OrganiseFiles();
+            OrganiseFiles();
 
-        Fadapter.clear();
-        for (File inF : mFiles) {
-            Fadapter.add(inF);
+            Fadapter.clear();
+            for (File inF : mFiles) {
+                Fadapter.add(inF);
+            }
         }
     }
 

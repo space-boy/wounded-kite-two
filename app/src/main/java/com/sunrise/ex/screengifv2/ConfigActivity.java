@@ -3,8 +3,10 @@ package com.sunrise.ex.screengifv2;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.ListFragment;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class ConfigActivity extends ActionBarActivity {
@@ -50,6 +53,13 @@ public class ConfigActivity extends ActionBarActivity {
 
             mNoWidget = (ImageView) findViewById(R.id.no_widget_img);
             mNoWidget.setVisibility(View.VISIBLE);
+        } else {
+
+            for(GifMeta mMeta : mGifMetaArrayList){
+                if(!new File(mMeta.getGifPath()).exists()){
+                    cleanUpList(mMeta);
+                }
+            }
         }
 
         FragmentManager fm = getFragmentManager();
@@ -87,6 +97,12 @@ public class ConfigActivity extends ActionBarActivity {
             mNoWidget = (ImageView) findViewById(R.id.no_widget_img);
             mNoWidget.setVisibility(View.GONE);
 
+            for(GifMeta mMeta : mGifMetaArrayList){
+                if(!new File(mMeta.getGifPath()).exists()){
+                    cleanUpList(mMeta);
+                }
+            }
+
         }else{
             mNoWidget = (ImageView) findViewById(R.id.no_widget_img);
             mNoWidget.setVisibility(View.VISIBLE);
@@ -99,5 +115,33 @@ public class ConfigActivity extends ActionBarActivity {
             fm.beginTransaction().add(R.id.fragmentContainer,Ls).commit();
 
         super.onResume();
+    }
+
+    private void cleanUpList(GifMeta gifmeta){
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = pref.edit();
+
+        if(gifmeta.isActive()) {
+            editor.remove(NewConfig.PATH_KEY);
+            editor.remove(NewConfig.WIDTH_KEY);
+            editor.remove(NewConfig.HIGH_KEY);
+            editor.remove(NewConfig.DELAY_KEY);
+            editor.commit();
+        }
+        if(gifmeta.isActive2()) {
+            editor.remove(NewConfig.PATH_KEY2);
+            editor.remove(NewConfig.WIDTH_KEY2);
+            editor.remove(NewConfig.HIGH_KEY2);
+            editor.remove(NewConfig.DELAY_KEY2);
+            editor.commit();
+        }
+        if(gifmeta.isActive3()) {
+            editor.remove(NewConfig.PATH_KEY3);
+            editor.remove(NewConfig.WIDTH_KEY3);
+            editor.remove(NewConfig.HIGH_KEY3);
+            editor.remove(NewConfig.DELAY_KEY3);
+            editor.commit();
+        }
+        mGifMetaArrayList.remove(gifmeta);
     }
 }

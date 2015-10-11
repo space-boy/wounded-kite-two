@@ -6,11 +6,13 @@ import java.util.ArrayList;
 public class FileStructure {
 
     public ArrayList<File> mFiles = new ArrayList<File>();
-    public static final String TAG = "FileStructure";
 
     public void listFiles(File init){
-
         File[] files = init.listFiles();
+
+        if(files == null){
+            return;
+        }
 
         if(init.isDirectory()) {
             for (File inFile : files) {
